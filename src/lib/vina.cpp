@@ -24,7 +24,6 @@
 #include "scoring_function.h"
 #include "precalculate.h"
 
-
 void Vina::cite() {
 	const std::string cite_message = "\
 #################################################################\n\
@@ -1032,6 +1031,10 @@ void Vina::global_search(const int exhaustiveness, const int n_poses, const doub
 
 	// Store results in Vina object
 	m_poses = poses;
+}
+
+void Vina::get_model_info(){
+     m_model.show_atoms();
 }
 
 Vina::~Vina() {

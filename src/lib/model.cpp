@@ -1062,15 +1062,11 @@ void model::show_pairs() const {
 
 void model::show_atoms() const {
 	std::cout << "ATOM INFORMATION\n";
-	VINA_FOR_IN(i, atoms) {
-		const atom &a = atoms[i];
-		if (i < num_movable_atoms()) {
-			std::cout << "     MOVABLE: ";
-		} else {
-			std::cout << " NOT MOVABLE: ";
-		}
-		std::cout << i << " - " << coords[i][0] << " " << coords[i][1] << " " << coords[i][2]
-				  << " - " << a.ad << " - " << a.xs << " - " << a.charge << "\n";
+        VINA_FOR(i, grid_atoms.size() + atoms.size()) {
+                const atom_index ai = sz_to_atom_index(i);
+                const atom& a = get_atom(ai);
+		std::cout << i << " - " << a.coords[0] << " " << a.coords[1] << " " << a.coords[2]
+				  << " - " << a.number << " - " << a.xs << " - " << a.charge << "\n";
 	}
 }
 

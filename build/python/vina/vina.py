@@ -398,7 +398,10 @@ class Vina:
     def randomize(self):
         """Randomize the input ligand conformation."""
         self._vina.randomize()
-    
+
+    def get_model_info(self):
+        self._vina.get_model_info()
+
     def score(self, unbound_energy=None):
         """Score current pose.
 

@@ -41,11 +41,11 @@
 
 
 struct parsed_atom : public atom {
-    unsigned number; 
-    parsed_atom(sz ad_, fl charge_, const vec& coords_, unsigned number_) : number(number_) {
+    parsed_atom(sz ad_, fl charge_, const vec& coords_, unsigned number_) {
         ad = ad_;
         charge = charge_;
         coords = coords_;
+        number = number_;
     }
 };
 
