@@ -1061,8 +1061,10 @@ void model::show_pairs() const {
 }
 
 void model::show_atoms() const {
-	std::cout << "ATOM INFORMATION\n";
+	//std::cout << "ATOM INFORMATION\n";
         VINA_FOR(i, grid_atoms.size() + atoms.size()) {
+                if(i==0) std::cout  << "RECEPTOR INFORMATION" << std::endl;
+                if(i==grid_atoms.size()) std::cout  << "LIGAND INFORMATION" << std::endl;
                 const atom_index ai = sz_to_atom_index(i);
                 const atom& a = get_atom(ai);
 		std::cout << i << " - " << a.coords[0] << " " << a.coords[1] << " " << a.coords[2]
